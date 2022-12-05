@@ -5,7 +5,6 @@ namespace dotNET_JWT.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-[Authorize(Roles="Administrator")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -21,6 +20,7 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
+    [Authorize(Roles="Admin")]
     public IEnumerable<WeatherForecast> Get()
     {
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast

@@ -21,7 +21,7 @@ namespace dotNET_JWT.Controllers {
             private string CreateToken (User user) {
                 List<Claim> claims = new List<Claim> {
                     new Claim(ClaimTypes.Name, user.Name),
-                    new Claim(ClaimTypes.Role, "Administrator")
+                    new Claim(ClaimTypes.Role, "Admin")
                 };
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(privateKey));
                 var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
